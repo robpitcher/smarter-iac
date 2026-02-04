@@ -1,5 +1,5 @@
-# Smarter Infrastructure as Code
-Smarter Infrastructure as Code is a starter workspace for generating and deploying Azure infrastructure using either Bicep or Terraform, with GitHub Copilot instructions, prompts, and tooling preconfigured to guide you through authoring, validating, and deploying IaC.
+# Azure IaC Starter
+Azure IaC Starter is a workspace for generating and deploying Azure infrastructure using either Bicep or Terraform, with GitHub Copilot instructions, prompts, and tooling preconfigured to guide you through authoring, validating, and deploying IaC.
 
 ## Prerequisites
 Choose one:
