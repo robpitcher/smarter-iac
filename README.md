@@ -2,9 +2,9 @@
 <!-- Overview -->
 
 ## Prerequisites
+- Azure Subscription
 - Azure CLI
 - Azure Bicep or Terraform
-- An Azure Subscription
 
 ## Getting Started
 
@@ -20,6 +20,8 @@
 | **Skills** | `.github/skills/<name>/skill.md` | Automatic by agent | Task-specific capability | Custom tools, API integrations, deployment checks, doc lookups |
 | **MCP Servers** | `mcp.json` | When configured & enabled | External tool integration | Connecting to external services (Azure, GitHub, databases, custom APIs) |
 
-2. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
+2. Run `az login` to authenticate to Azure and select your desired subscription.
 
-3. Once GitHub Copilot has finished creating the IaC, follow the deployment instructions located in `src/bicep/README.md` or `src/terraform/README.md`.
+3. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
+
+4. Once GitHub Copilot has finished creating the IaC, follow the deployment instructions located in `src/bicep/README.md` or `src/terraform/README.md`.
