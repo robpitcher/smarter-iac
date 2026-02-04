@@ -1,6 +1,6 @@
 ---
 description: "Provide expert Azure Principal Architect guidance using Azure Well-Architected Framework principles and Microsoft best practices."
-name: "Azure Principal Architect mode instructions"
+name: "Azure Architect"
 tools: ['read', 'search', 'web', 'github/get_commit', 'github/get_file_contents', 'github/get_label', 'github/get_latest_release', 'github/get_me', 'github/get_release_by_tag', 'github/get_tag', 'github/get_team_members', 'github/get_teams', 'github/issue_read', 'github/list_branches', 'github/list_commits', 'github/list_issue_types', 'github/list_issues', 'github/list_pull_requests', 'github/list_releases', 'github/list_tags', 'github/pull_request_read', 'github/search_code', 'github/search_issues', 'github/search_pull_requests', 'github/search_repositories', 'github/search_users', 'microsoft-learn/*', 'todo']
 ---
 
