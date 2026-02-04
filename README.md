@@ -2,13 +2,16 @@
 Smarter Infrastructure as Code is a starter workspace for generating and deploying Azure infrastructure using either Bicep or Terraform, with GitHub Copilot instructions, prompts, and tooling preconfigured to guide you through authoring, validating, and deploying IaC.
 
 ## Prerequisites
+Choose one:
+- **Use Codespaces / Dev Container** (recommended) — tools are preinstalled
+- **Local install**: Azure CLI, plus either Bicep or Terraform
+
+Also required:
 - Azure Subscription
-- Azure CLI
-- Azure Bicep or Terraform
 
 ## Getting Started
 
-1. Review the GitHub Copilot customizations used in this repo located in `.github/` and `.vscode/mcp.json`. See below for generic information about these various customization types.
+1. Review the table below and the specific GitHub Copilot customizations used in this repo (located in `.github/` and `.vscode/mcp.json`) to get an idea of how these pieces work together to help you write Infrastructure as Code.
 
 ### GitHub Copilot Customizations
 | Type | Location | Used | Scope | Best For / Use Cases |
