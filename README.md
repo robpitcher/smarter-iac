@@ -24,7 +24,7 @@ Smarter Infrastructure as Code is a starter workspace for generating and deployi
 
 3. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
 
-4. Once GitHub Copilot has finished creating the IaC, you can ask it to run the deployment for you or follow the deployment instructions located in `src/bicep/README.md` or `src/terraform/README.md`.
+4. Once GitHub Copilot has finished creating the IaC, you can ask it to run the deployment for you or follow the deployment instructions located in `infra/bicep/README.md` or `infra/terraform/README.md`.
 
 ## Extras
 Try a challenge task to reinforce the workflow:
