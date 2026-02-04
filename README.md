@@ -1,5 +1,5 @@
 # Smarter Infrastructure as Code
-<!-- Overview -->
+Smarter Infrastructure as Code is a starter workspace for generating and deploying Azure infrastructure using either Bicep or Terraform, with GitHub Copilot instructions, prompts, and tooling preconfigured to guide you through authoring, validating, and deploying IaC.
 
 ## Prerequisites
 - Azure Subscription
@@ -24,10 +24,13 @@
 
 3. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
 
-4. Once GitHub Copilot has finished creating the IaC, follow the deployment instructions located in `src/bicep/README.md` or `src/terraform/README.md`.
+4. Once GitHub Copilot has finished creating the IaC, you can ask it to run the deployment for you or follow the deployment instructions located in `src/bicep/README.md` or `src/terraform/README.md`.
 
-<!-- ## Extras
-TODO: Document how to add Azure MCP To GHCP Coding agent for async tasks:
-https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent#configure-the-github-repository-to-use-the-azure-mcp-server
+## Extras
+Try a challenge task to reinforce the workflow:
+1. Enable GitHub Copilot Coding Agent on your repo.
+2. Configure the Azure MCP Server for GitHub Copilot Coding Agent using the official instructions:
+	https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent#configure-the-github-repository-to-use-the-azure-mcp-server
+3. Re-run the prompt (or create your own) on github.com and let GitHub Copilot Coding Agent handle the task for you.
 
-TODO: Incorporate Azure SRE Agent -->
+<!-- Optional: Try the Azure SRE Agent to review your deployment for reliability best practices. -->
