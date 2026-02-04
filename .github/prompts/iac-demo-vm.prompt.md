@@ -19,3 +19,4 @@ IaC Language: ${input:iacLanguage:Language to use for IaC code generation (e.g.,
 - Keep defaults low-cost and demo-friendly.
 - Do **not** output secrets or keys.
 - Assume deployment scope is **subscription** (include resource group creation).
+- Update the README.md in the IaC language folder to document how to deploy the generated IaC code.
