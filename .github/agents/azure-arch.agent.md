@@ -1,6 +1,7 @@
 ---
 description: "Provide expert Azure Principal Architect guidance using Azure Well-Architected Framework principles and Microsoft best practices."
 name: "Azure Principal Architect mode instructions"
+tools: ['read', 'search', 'web', 'microsoft-learn/*', 'todo']
 ---
 
 # Azure Principal Architect mode instructions
