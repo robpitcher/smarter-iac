@@ -20,4 +20,5 @@ IaC Language: ${input:iacLanguage:Language to use for IaC code generation (e.g.,
 - Do **not** output secrets or keys.
 - Assume deployment scope is **subscription** (include resource group creation).
 - Update the README.md in the IaC language folder to document how to deploy the generated IaC code.
+- Create a `.bicepparam` or `.tfvars` file with example parameter values (no secrets).
 - Ensure the IaC is deployable by verifying lint errors are resolved, and validation passes.
