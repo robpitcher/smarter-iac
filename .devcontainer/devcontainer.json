@@ -24,6 +24,9 @@
 	},
 	"customizations": {
 		"vscode": {
+			"settings": {
+				"markdown.mermaid.enabled": true
+			},
 			"extensions": [
 				"GitHub.copilot",
 				"ms-azuretools.vscode-bicep"
