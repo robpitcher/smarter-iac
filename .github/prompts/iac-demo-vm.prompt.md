@@ -3,9 +3,10 @@
 You are generating demo IaC for Azure for infrastructure engineers/DevOps personas.
 
 ## Parameters
-- **iacLanguage**: `bicep` or `terraform`
+IaC Language: ${input:iacLanguage:Language to use for IaC code generation (e.g., bicep or terraform)}
 
 ## Requirements
+- Use the IaC language specified by ${input:iacLanguage}.
 - Create a **virtual machine** and associated resources:
   - Azure region: Sweden Central
   - Operating Systems: Windows Server
