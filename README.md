@@ -25,3 +25,9 @@
 3. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
 
 4. Once GitHub Copilot has finished creating the IaC, follow the deployment instructions located in `src/bicep/README.md` or `src/terraform/README.md`.
+
+<!-- ## Extras
+TODO: Document how to add Azure MCP To GHCP Coding agent for async tasks:
+https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent#configure-the-github-repository-to-use-the-azure-mcp-server
+
+TODO: Incorporate Azure SRE Agent -->
