@@ -14,7 +14,7 @@ Also required:
 1. Review the table below and the specific GitHub Copilot customizations used in this repo (located in `.github/` and `.vscode/mcp.json`) to get an idea of how these pieces work together to help you write Infrastructure as Code.
 
 ### GitHub Copilot Customizations
-| Type | Location | Used | Scope | Best For / Use Cases |
+| Type | Location | When Used | Scope | Best For / Use Cases |
 |------|----------|-----------|-------|----------------------|
 | **Repository Instructions** | `.github/copilot-instructions.md` | Every chat/edit session | Entire repository | Global repo conventions, coding standards, guardrails that apply everywhere |
 | **File/Path Instructions** | `.github/instructions/*.instructions.md` | Pattern/glob match (via `applyTo` frontmatter) | Specific files or paths | Language-specific rules (e.g., `**/*.bicep`, `**/*.tf`), framework guidelines |
