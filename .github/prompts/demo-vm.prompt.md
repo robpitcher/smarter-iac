@@ -9,7 +9,7 @@ IaC Language: ${input:iacLanguage:Language to use for IaC code generation (e.g.,
 - Use the IaC language specified by ${input:iacLanguage}.
 - Create a **virtual machine** and associated resources:
   - Azure region: Sweden Central
-  - Operating Systems: Windows Server
+  - Operating System: Windows Server
   - Virtual Network + Subnet: Use default address spaces
   - VM Size: Use a common, low-cost size suitable for demo
   - Network Security Group (NSG) with default rules
