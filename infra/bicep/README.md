@@ -22,6 +22,38 @@ This directory contains Bicep templates for deploying a demo Windows Server VM i
 
 ### Deployment Instructions
 
+#### Security Note
+
+⚠️ **Important Security Considerations:**
+- The default NSG configuration allows RDP access from any IP address (`*`). For production use, restrict the `sourceAddressPrefix` to specific IP ranges or consider using Azure Bastion for secure access.
+- Avoid passing passwords via command-line as they may be exposed in shell history. Use one of the secure methods below.
+
+#### Secure Password Input Methods
+
+**Recommended: Read password securely from prompt**
+```bash
+read -sp "Enter admin password: " ADMIN_PASSWORD && \
+az deployment sub create \
+  --location swedencentral \
+  --template-file demo-vm.bicep \
+  --parameters demo-vm.bicepparam \
+  --parameters adminPassword="$ADMIN_PASSWORD" && \
+unset ADMIN_PASSWORD
+```
+
+**Alternative: Use Azure Key Vault**
+```bash
+# Store password in Key Vault first
+az keyvault secret set --vault-name <your-keyvault> --name vm-admin-password --value '<password>'
+
+# Reference it during deployment
+az deployment sub create \
+  --location swedencentral \
+  --template-file demo-vm.bicep \
+  --parameters demo-vm.bicepparam \
+  --parameters adminPassword="@Microsoft.KeyVault(SecretUri=https://<your-keyvault>.vault.azure.net/secrets/vm-admin-password)"
+```
+
 #### 1. Validate the Bicep template
 
 ```bash
@@ -29,7 +61,21 @@ cd infra/bicep
 az bicep build --file demo-vm.bicep
 ```
 
-#### 2. Deploy using parameters file
+#### 2. Deploy using secure password input (Recommended)
+
+```bash
+read -sp "Enter admin password: " ADMIN_PASSWORD && \
+az deployment sub create \
+  --location swedencentral \
+  --template-file demo-vm.bicep \
+  --parameters demo-vm.bicepparam \
+  --parameters adminPassword="$ADMIN_PASSWORD" && \
+unset ADMIN_PASSWORD
+```
+
+#### 3. Deploy using parameters file (for testing only)
+
+**Note:** This method exposes the password in command history. Use only for testing.
 
 ```bash
 az deployment sub create \
@@ -39,7 +85,9 @@ az deployment sub create \
   --parameters adminPassword='<YourSecurePassword123!>'
 ```
 
-#### 3. Deploy with inline parameters
+#### 4. Deploy with inline parameters (for testing only)
+
+**Note:** This method exposes the password in command history. Use only for testing.
 
 ```bash
 az deployment sub create \
@@ -55,7 +103,7 @@ az deployment sub create \
     windowsOSVersion='2022-Datacenter'
 ```
 
-#### 4. What-If Deployment (preview changes)
+#### 5. What-If Deployment (preview changes)
 
 ```bash
 az deployment sub what-if \
@@ -73,6 +121,13 @@ The admin password must meet Azure VM password requirements:
 - Contains at least one lowercase letter
 - Contains at least one number
 - Contains at least one special character
+
+### Username Requirements
+
+The admin username must:
+- Be between 1-20 characters
+- Not be a reserved Azure username (e.g., 'administrator', 'admin', 'root', 'guest', 'test', etc.)
+- The template validates against a list of reserved names and will fail deployment if an invalid username is provided
 
 ### Available VM Sizes
 

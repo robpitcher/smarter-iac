@@ -40,6 +40,9 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2023-09-0
           protocol: 'Tcp'
           access: 'Allow'
           direction: 'Inbound'
+          // SECURITY NOTE: For demo purposes, RDP is allowed from any source.
+          // For production, restrict sourceAddressPrefix to specific IP ranges
+          // or use Azure Bastion for secure access.
           sourceAddressPrefix: '*'
           sourcePortRange: '*'
           destinationAddressPrefix: '*'

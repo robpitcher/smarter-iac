@@ -15,6 +15,44 @@ param namePrefix string = 'demo'
 @maxLength(20)
 param adminUsername string
 
+// Validate that username is not a reserved Azure name
+var reservedUsernames = [
+  'administrator'
+  'admin'
+  'user'
+  'user1'
+  'test'
+  'user2'
+  'test1'
+  'user3'
+  'admin1'
+  '1'
+  '123'
+  'a'
+  'actuser'
+  'adm'
+  'admin2'
+  'aspnet'
+  'backup'
+  'console'
+  'guest'
+  'john'
+  'owner'
+  'root'
+  'server'
+  'sql'
+  'support'
+  'support_388945a0'
+  'sys'
+  'test2'
+  'test3'
+  'user4'
+  'user5'
+]
+
+// This will cause deployment to fail if a reserved username is used
+var isValidUsername = !contains(reservedUsernames, toLower(adminUsername))
+
 @description('Administrator password for the VM')
 @secure()
 @minLength(12)
@@ -55,6 +93,10 @@ module vmResources './modules/vm-resources.bicep' = {
     windowsOSVersion: windowsOSVersion
   }
 }
+
+// Outputs with username validation warning
+@description('WARNING: Check that username is not reserved')
+output usernameValidation string = isValidUsername ? 'Username is valid' : 'WARNING: ${adminUsername} may be a reserved username'
 
 // Outputs
 @description('Resource Group name')
