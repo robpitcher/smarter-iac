@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/base-ubuntu
+{
+	"name": "Ubuntu",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"installBicep": true,
+			"version": "latest",
+			"bicepVersion": "latest"
+		},
+		"ghcr.io/azure/azure-dev/azd:0": {},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "lts"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"installDirectlyFromGitHubRelease": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"version": "latest",
+			"tflint": "latest",
+			"terragrunt": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"markdown.mermaid.enabled": true
+			},
+			"extensions": [
+				"GitHub.copilot",
+				"ms-azuretools.vscode-bicep"
+			]
+		}
+	}
+}
