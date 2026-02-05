@@ -22,6 +22,21 @@ This directory contains Bicep templates for deploying a demo Windows Server VM i
 
 ### Deployment Instructions
 
+#### Pre-deployment Validation
+
+Before deploying, validate your admin username is not a reserved Azure name:
+
+```bash
+cd infra/bicep
+./validate-username.sh <your-username>
+```
+
+Example:
+```bash
+./validate-username.sh adminUser
+# Output: ✅ Username 'adminUser' is valid!
+```
+
 #### Security Note
 
 ⚠️ **Important Security Considerations:**
@@ -127,7 +142,13 @@ The admin password must meet Azure VM password requirements:
 The admin username must:
 - Be between 1-20 characters
 - Not be a reserved Azure username (e.g., 'administrator', 'admin', 'root', 'guest', 'test', etc.)
-- The template validates against a list of reserved names and will fail deployment if an invalid username is provided
+
+**Important:** Use the provided validation script before deployment:
+```bash
+./validate-username.sh <your-username>
+```
+
+The `validate-username.sh` script checks against the full list of 30+ reserved Azure usernames and will fail with a clear error message if the username is invalid. If you try to deploy with a reserved username without pre-validating, the Azure deployment will fail with a less helpful error message.
 
 ### Available VM Sizes
 
