@@ -9,11 +9,34 @@ Choose one:
 Also required:
 - Azure Subscription
 
-## Getting Started
+## Try it out
 
-1. Review the table below and the specific GitHub Copilot customizations used in this repo (located in `.github/` and `.vscode/mcp.json`) to get an idea of how these pieces work together to help you write Infrastructure as Code.
+You can test the included GitHub Copilot customizations by using the included prompt template to create IaC for a VM:
 
-### GitHub Copilot Customizations
+1. Run `az login` to authenticate to Azure and select your desired subscription.
+
+2. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
+
+3. Once GitHub Copilot has finished creating the IaC, you can ask it to run the deployment for you or follow the deployment instructions located in `infra/bicep/README.md` or `infra/terraform/README.md`.
+
+Want to learn how this repo guides Copilot? See the [Appendix: GitHub Copilot Customizations](#appendix-github-copilot-customizations).
+
+## Extras
+Try creating IaC from your own prompts.
+
+or
+
+Try delegating IaC creation to GitHub Copilot Coding Agent:
+1. Enable GitHub Copilot Coding Agent on your repo.
+2. Configure the Azure MCP Server for GitHub Copilot Coding Agent using the official instructions:
+	https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent#configure-the-github-repository-to-use-the-azure-mcp-server
+3. Re-run the prompt (or create your own) on github.com and let GitHub Copilot Coding Agent handle the task for you.
+
+<!-- Optional: Try the Azure SRE Agent to review your deployment for reliability best practices. -->
+
+## Appendix: GitHub Copilot Customizations
+Use this reference if you want to learn how the repo is configured to guide Copilot.
+
 | Type | Location | When Used | Scope | Best For / Use Cases |
 |------|----------|-----------|-------|----------------------|
 | **Repository Instructions** | `.github/copilot-instructions.md` | Every chat/edit session | Entire repository | Global repo conventions, coding standards, guardrails that apply everywhere |
@@ -22,18 +45,3 @@ Also required:
 | **Agents** | `.github/agents/*.agent.md` | Invoked via Agent selector | Specialized persona | Domain experts; personas with specific knowledge/tools |
 | **Skills** | `.github/skills/<name>/SKILL.md` | Automatic by agent | Task-specific capability | Custom tools, API integrations, deployment checks, doc lookups |
 | **MCP Servers** | `mcp.json` | When configured & enabled | External tool integration | Connecting to external services (Azure, GitHub, databases, custom APIs) |
-
-2. Run `az login` to authenticate to Azure and select your desired subscription.
-
-3. Run the prompt template by typing `/demo-vm iacLanguage:bicep` or `/demo-vm iacLanguage:terraform` into GitHub Copilot Chat
-
-4. Once GitHub Copilot has finished creating the IaC, you can ask it to run the deployment for you or follow the deployment instructions located in `infra/bicep/README.md` or `infra/terraform/README.md`.
-
-## Extras
-Try a challenge task to reinforce the workflow:
-1. Enable GitHub Copilot Coding Agent on your repo.
-2. Configure the Azure MCP Server for GitHub Copilot Coding Agent using the official instructions:
-	https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent#configure-the-github-repository-to-use-the-azure-mcp-server
-3. Re-run the prompt (or create your own) on github.com and let GitHub Copilot Coding Agent handle the task for you.
-
-<!-- Optional: Try the Azure SRE Agent to review your deployment for reliability best practices. -->
