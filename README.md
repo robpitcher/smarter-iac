@@ -20,7 +20,7 @@ Also required:
 | **File/Path Instructions** | `.github/instructions/*.instructions.md` | Pattern/glob match (via `applyTo` frontmatter) | Specific files or paths | Language-specific rules (e.g., `**/*.bicep`, `**/*.tf`), framework guidelines |
 | **Prompts** | `.github/prompts/*.prompt.md` | On-demand via `/` command | Single task | Reusable prompt templates, common tasks, onboarding workflows |
 | **Agents** | `.github/agents/*.agent.md` | Invoked via Agent selector | Specialized persona | Domain experts; personas with specific knowledge/tools |
-| **Skills** | `.github/skills/<name>/skill.md` | Automatic by agent | Task-specific capability | Custom tools, API integrations, deployment checks, doc lookups |
+| **Skills** | `.github/skills/<name>/SKILL.md` | Automatic by agent | Task-specific capability | Custom tools, API integrations, deployment checks, doc lookups |
 | **MCP Servers** | `mcp.json` | When configured & enabled | External tool integration | Connecting to external services (Azure, GitHub, databases, custom APIs) |
 
 2. Run `az login` to authenticate to Azure and select your desired subscription.
