@@ -37,3 +37,6 @@ override.tf.json
 terraform.rc
 
 .vscode/settings.json
+
+# Bicep compiled ARM templates (JSON build output)
+*.json
