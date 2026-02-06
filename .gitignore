@@ -37,3 +37,7 @@ override.tf.json
 terraform.rc
 
 .vscode/settings.json
+
+# Bicep build artifacts (ARM templates)
+infra/bicep/**/*.json
+!infra/bicep/**/*.parameters.json
