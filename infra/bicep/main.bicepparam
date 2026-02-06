@@ -1,0 +1,10 @@
+using './main.bicep'
+
+param resourceGroupName = 'demo-bicep-rg'
+param location = 'swedencentral'
+param adminUsername = 'azureuser'
+param adminPassword = '<enter-strong-password>'
+param vmSize = 'Standard_B2s'
+param windowsSku = '2022-datacenter-azure-edition'
+param vnetAddressPrefix = '10.0.0.0/16'
+param subnetAddressPrefix = '10.0.0.0/24'
