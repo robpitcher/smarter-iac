@@ -39,4 +39,4 @@ terraform.rc
 .vscode/settings.json
 
 # Bicep build artifacts (ARM JSON templates)
-*.json
+infra/bicep/**/*.json

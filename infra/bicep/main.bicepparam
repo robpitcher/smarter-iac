@@ -23,3 +23,8 @@ param subnetAddressPrefix = '10.0.0.0/24'
 
 // Resource naming prefix
 param resourcePrefix = 'demo'
+
+// RDP Source IP restriction - IMPORTANT: Change to your IP for better security
+// Use '*' for any source (demo only, not recommended)
+// Use your IP: '203.0.113.45/32' or CIDR range: '203.0.113.0/24'
+param rdpSourceAddressPrefix = '*'

@@ -36,6 +36,9 @@ param subnetAddressPrefix string = '10.0.0.0/24'
 @maxLength(10)
 param resourcePrefix string = 'demo'
 
+@description('Source IP address or range for RDP access. Use * for any source (demo only), or specify your IP/CIDR for better security')
+param rdpSourceAddressPrefix string = '*'
+
 // Variables
 var uniqueSuffix = uniqueString(subscription().subscriptionId, location, resourceGroupName)
 var vmName = '${resourcePrefix}-vm-${uniqueSuffix}'
@@ -58,6 +61,7 @@ module nsg 'modules/nsg.bicep' = {
   params: {
     location: location
     nsgName: nsgName
+    rdpSourceAddressPrefix: rdpSourceAddressPrefix
   }
 }
 

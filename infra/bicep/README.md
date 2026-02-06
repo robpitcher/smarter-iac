@@ -110,7 +110,7 @@ This will show:
    - **Username**: `azureadmin` (or what you specified)
    - **Password**: The password you provided during deployment
 
-**Note**: The Public IP is dynamic (allocated when VM starts). It may change if the VM is deallocated.
+**Note**: The Public IP uses Standard SKU with static allocation, so it remains the same even if the VM is deallocated.
 
 ## Customization
 
@@ -141,6 +141,25 @@ az deployment sub create \
 | `vnetAddressPrefix` | VNet address space | `10.0.0.0/16` |
 | `subnetAddressPrefix` | Subnet address space | `10.0.0.0/24` |
 | `resourcePrefix` | Resource naming prefix | `demo` |
+| `rdpSourceAddressPrefix` | Source IP/CIDR for RDP access | `*` (any) |
+
+#### 🔒 Security Tip: Restrict RDP Access
+
+For better security, restrict RDP access to your IP address:
+
+```bash
+# Get your public IP
+MY_IP=$(curl -s ifconfig.me)
+
+# Deploy with restricted RDP access
+az deployment sub create \
+  --name demo-vm-deployment \
+  --location swedencentral \
+  --template-file main.bicep \
+  --parameters main.bicepparam \
+  --parameters adminPassword='YourPassword!' \
+  --parameters rdpSourceAddressPrefix="${MY_IP}/32"
+```
 
 ## Clean Up Resources
 
@@ -195,20 +214,25 @@ az group delete --name rg-demo-vm --yes --no-wait
 
 ⚠️ **Important**: This is a demo configuration with the following security considerations:
 
-1. **Open RDP Access**: The NSG allows RDP (port 3389) from any source IP (`*`). For production:
-   - Restrict source to specific IP ranges
-   - Use Azure Bastion for secure VM access
-   - Consider Just-In-Time (JIT) VM access
+1. **RDP Access Control**: 
+   - By default, the NSG allows RDP (port 3389) from any source IP (`*`)
+   - **Recommendation**: Use the `rdpSourceAddressPrefix` parameter to restrict access to your IP address
+   - For production:
+     - Always restrict source to specific IP ranges
+     - Use Azure Bastion for secure VM access without public IPs
+     - Consider Just-In-Time (JIT) VM access
+     - Enable Azure AD authentication with MFA
 
 2. **Password Authentication**: Uses password authentication. For production:
    - Use SSH keys or certificate-based authentication where possible
    - Enable Azure AD authentication
    - Implement MFA (Multi-Factor Authentication)
+   - Use Azure Key Vault for credential management
 
-3. **Dynamic Public IP**: The IP changes when VM is deallocated. For production:
-   - Use Static IP allocation
-   - Consider using Private Endpoints
-   - Implement Azure VPN or ExpressRoute
+3. **Static Public IP**: The IP remains the same for easier demo access. For production:
+   - Use Private Endpoints where possible
+   - Implement Azure VPN or ExpressRoute for private connectivity
+   - Consider using Azure Bastion instead of public IPs
 
 ## Troubleshooting
 
